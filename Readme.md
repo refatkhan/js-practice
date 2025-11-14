@@ -171,3 +171,143 @@ includes()	Check if a value exists	true / false
 Array.from()	Create arrays dynamically	new array
 fill()	Fill entire/partial array	modified array
 Range function	Create number sequences	array
+<h1>🧮 JavaScript Array Methods: map(), filter(), sort(), slice(), splice()</h1>
+
+These are some of the most powerful and commonly used JavaScript array methods.
+This documentation explains how each method works with clear examples, use cases, and output.
+
+<hr/>
+<h2>🔹 1. Array.map()</h2>
+<em>Create a new array by applying a function to each element</em>
+
+Does not modify the original array
+
+Always returns a new array
+
+Used for: transforming values, creating new structures
+
+✅ Example: Multiply each element by 2
+const numbers = [1, 2, 3, 4];
+const doubled = numbers.map(num => num \* 2);
+
+console.log(doubled);
+// Output: [2, 4, 6, 8]
+
+Example: Extract property from array of objects
+const users = [
+{ name: "Refat", age: 20 },
+{ name: "Siam", age: 22 }
+];
+
+const names = users.map(user => user.name);
+
+console.log(names);
+// ["Refat", "Siam"]
+
+<h2>🔹 2. Array.filter()</h2>
+<em>Create a new array by keeping only elements that match a condition</em>
+
+Does not modify original array
+
+Returns a filtered array
+
+✅ Example: Keep only even numbers
+const numbers = [1, 2, 3, 4, 5, 6];
+const evenNumbers = numbers.filter(num => num % 2 === 0);
+
+console.log(evenNumbers);
+// [2, 4, 6]
+
+Example: Filter objects
+const products = [
+{ name: "Laptop", price: 800 },
+{ name: "Mouse", price: 20 },
+{ name: "Keyboard", price: 50 }
+];
+
+const expensive = products.filter(p => p.price > 100);
+
+console.log(expensive);
+// [{ name: "Laptop", price: 800 }]
+
+<h2>🔹 3. Array.sort()</h2>
+<em>Sort elements alphabetically or numerically</em>
+
+⚠️ Default sort converts values to strings, which causes unexpected outcomes.
+Use compare functions for proper sorting.
+
+✅ Example: Sort numbers (ascending)
+const numbers = [40, 10, 3, 8, 50];
+numbers.sort((a, b) => a - b);
+
+console.log(numbers);
+// [3, 8, 10, 40, 50]
+
+Example: Sort strings alphabetically
+const names = ["Siam", "refat", "Amin", "khan"];
+names.sort((a, b) => a.localeCompare(b));
+
+console.log(names);
+// ["Amin", "khan", "refat", "Siam"]
+
+<h2>🔹 4. Array.slice()</h2>
+<em>Returns a portion of the array WITHOUT modifying the original array.</em>
+
+Syntax:
+slice(start, end) → end is not included
+
+✅ Example: Get first 3 elements
+const numbers = [10, 20, 30, 40, 50];
+const firstThree = numbers.slice(0, 3);
+
+console.log(firstThree);
+// [10, 20, 30]
+
+Example: Get last 2 elements
+const numbers = [10, 20, 30, 40, 50];
+const lastTwo = numbers.slice(-2);
+
+console.log(lastTwo);
+// [40, 50]
+
+<h2>🔹 5. Array.splice()</h2>
+<em>Add, remove, or replace elements in an array (modifies original array)</em>
+
+Syntax:
+splice(start, deleteCount, item1, item2, ...)
+
+Modifies original array
+
+Returns removed elements
+
+✅ Example: Remove elements
+const items = ["a", "b", "c", "d"];
+const removed = items.splice(1, 2);
+
+console.log(items);
+// ["a", "d"]
+
+console.log(removed);
+// ["b", "c"]
+
+Example: Insert elements (without removing)
+const items = ["a", "b", "c"];
+items.splice(1, 0, "x", "y");
+
+console.log(items);
+// ["a", "x", "y", "b", "c"]
+
+Example: Replace elements
+const items = ["a", "b", "c"];
+items.splice(1, 1, "z");
+
+console.log(items);
+// ["a", "z", "c"]
+
+<h2>📌 Final Summary Table</h2>
+Method	Modifies Original?	Returns	Best for
+map()	❌ No	new array	transforming values
+filter()	❌ No	new array	keeping elements by condition
+sort()	✔️ Yes	sorted array	ordering elements
+slice()	❌ No	new array	copying a portion
+splice()	✔️ Yes	removed elements	add/remove/replace items
