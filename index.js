@@ -53,3 +53,6 @@
 // console.log(arr)
 
 const range = (start, stop, step) =>Array.from({length: Math.ceil(stop-start)/step})
+
+
+The name of our projec is hudai.
