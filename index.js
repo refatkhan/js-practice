@@ -51,7 +51,9 @@
 //array create korbe eikhane .fill diye array element declare kora jay abar function diyeo kora jay 
 // const arr = Array.from({length: 5}).fill(0)
 // console.log(arr)
-
+function Nothing(){
+        console.log("NOthing");
+}
 const range = (start, stop, step) =>Array.from({length: Math.ceil(stop-start)/step})
 
 
